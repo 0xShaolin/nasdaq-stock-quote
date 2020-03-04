@@ -21,7 +21,7 @@ class Share(object):
     def __init__(self, name):
         self.name = str(name).upper().strip()
         try:
-            self.page = requests.get("http://www.nasdaq.com/market-activity/stocks/" + self.name)
+            self.page = requests.get("http://www.nasdaq.com/market-activity/stocks/" + self.name) # fixed endpoint
             self.tree = html.fromstring(self.page.content)
             self.page_text = self.page.text
             arrow = self.page_text.find('id="qwidget-arrow"')
